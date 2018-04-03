@@ -24,7 +24,11 @@ class AppsAdapter(val appList: List<AppInfo>): RecyclerView.Adapter<AppsAdapter.
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bindApp(appInfo: AppInfo) {
-            itemView.package_name.text = appInfo.packageName
+            itemView.apply {
+                package_name.text = appInfo.packageName
+                app_name.text = appInfo.appName
+                app_icon.setImageDrawable(appInfo.appIcon)
+            }
         }
     }
 }
